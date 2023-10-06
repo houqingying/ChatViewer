@@ -54,6 +54,8 @@ ChatViewer还有很多不完善的地方，如果您有宝贵的建议、不满 
 
 ## 运行
 
+后端项目在main分支下，前端项目在frontend分支下。
+
 本地新建SpringBoot项目，将ChatViewer项目clone至对应文件夹下。
 
 ![image](https://github.com/houqingying/ChatViewer/assets/59137245/50ae2193-a566-432a-8ec5-ba4258c7574b)
