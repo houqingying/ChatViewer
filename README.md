@@ -22,7 +22,8 @@
 
 **代码规范**：后端代码全部通过阿里编码规约扫描。
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/badc9261-dea7-4d6a-b861-c2752dca7dc3)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/77f83c9a-a958-4395-abe3-e95f5734a4b7)
+
 
 
 **TODO**：
@@ -37,19 +38,23 @@ ChatViewer还有很多不完善的地方，如果您有宝贵的建议、不满 
 
 ## 效果预览
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/fb391e8a-d655-4694-b82c-383802732a9e)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/f7121bad-d7cc-4444-ab15-53c390e41320)
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/e4b00671-e7d5-442b-9d0c-01988609adf2)
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/013325f7-7f4e-4c71-896b-4ae93fbc4d96)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/c50d2e7c-0555-4e49-845f-fc0c11d110f1)
+
+
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/b1976342-6af1-4aa2-850a-a37c68ffcbdd)
+
 
 ## 接口文档
 
 **接口文档**：https://chat-viewer.apifox.cn/
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/54bb5900-5c42-44c2-a50b-54c3b01f126a)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/7680c9eb-1043-4b50-9f5c-a5f07f3ab7f9)
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/7d7bd125-f741-43fa-a0dd-4a6aba93a0ce)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/1be3e81f-45ba-410f-a2b3-526b8f7a25da)
+
 
 
 ## 运行
@@ -58,9 +63,10 @@ ChatViewer还有很多不完善的地方，如果您有宝贵的建议、不满 
 
 本地新建SpringBoot项目，将ChatViewer项目clone至对应文件夹下。
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/50ae2193-a566-432a-8ec5-ba4258c7574b)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/e2b42eeb-3cc3-4287-94fa-d53299865664)
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/9b34aaab-5a3f-4ebc-ba88-2039c0b69f52)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/a290956c-741c-450b-a8c4-7884e6eaaffe)
+
 
 
 删除`application.properties`文件。
@@ -69,9 +75,10 @@ ChatViewer还有很多不完善的地方，如果您有宝贵的建议、不满 
 
 若能够启动，更改`application.yml`中MySQL、Redis、Kafka相关设置，以及GPT与阿里云key，再次Run，项目应能正确运行。
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/2936cef0-c0b7-4b4e-8e26-9fc31f3ceb88)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/1ae9346d-36f1-4682-af11-caf33c5c8d71)
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/13bc6ad2-08fd-4a77-9091-a19e2025236a)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/254c9926-cb6f-42b7-89a2-f6ac1867905a)
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/66a00f7b-db8a-4ee0-80e2-72b62c199e26)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/9697567c-34fe-40a2-84bc-dfcafc427569)
+
 
