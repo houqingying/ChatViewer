@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chatviewer.blog.mapper.MessageMapper">
+
+    <select id="selectConversations" resultType="com.chatviewer.blog.dto.ContactPersonDto">
+        select
+               id,          -- 聊天联系人的用户ID
+               name,        -- 聊天联系人的用户名
+               head_img,    -- 聊天联系人的头像
+               last_msg,    -- 最后一条消息的内容
+               coalesce(un_read_counts, 0) as un_read_counts,   -- 未读消息的数量，如果为NULL则默认为0
+               create_time  -- 最后一条消息的创建时间
+
+        from (
+            -- 子查询1.3 contactor：连接子查询2中得到的conversation视图(最新消息id、联系人id)
+            -- 与message、user表，获取【最近的消息记录内容与联系人用户信息】
+            select
+                   conversation.conversation_partner as id,
+                   user_name as name,
+                   user_avatar as head_img,
+                   content as last_msg,
+                   create_time
+            from blog.blog_message,
+                 blog.blog_user,
+                 (
+                     -- 子查询1.2 conversation：根据联系人conversation_partner分组，获取每个对话的【最新消息id】
+                     select MAX(message_id) as message_id,  -- 每个对话的最新消息ID
+                            conversation_partner
+                     from (
+                         -- 子查询1.1 sub-query：获取用户(id)发送或接收的所有对话消息ID message_id 与 联系人conversation_partner
+                         select
+                                message_id,
+                                if (from_id = #{id}, to_id, from_id) as conversation_partner    -- 联系人id
+                         from blog.blog_message
+                         where from_id = #{id} OR to_id = #{id}
+                     ) as subquery
+                     group by conversation_partner
+                 ) as conversation
+                where conversation.message_id = blog_message.message_id
+                  and conversation.conversation_partner = blog_user.user_id
+        ) as contactor
+
+        left join (
+            -- 子查询2.2 unread_table：获取每个对话中，用户(id)的未读消息数
+            select COUNT(*) as un_read_counts,
+                   conversation_partner
+            from (
+                -- 子查询2.1 tmp_table：获取用户(id)发送与接收的所有对话消息ID message_id 与 联系人conversation_partner，以及接收人id与读取状态
+                select
+                       message_id,
+                       if (from_id = #{id}, to_id, from_id) AS conversation_partner,
+                       to_id,
+                       status
+                from blog.blog_message
+                where (from_id = #{id} or to_id = #{id})
+            ) as tmp_table
+            where status = 0 and to_id = #{id}
+            group by conversation_partner
+        ) as unread_table
+
+        -- 连接子查询1.3【最近的消息记录内容与联系人用户信息】和子查询2.2【未读消息数与联系人id】
+        on unread_table.conversation_partner = contactor.id;
+    </select>
+
+    <update id="read">
+        update blog_message set status = 1 where from_id in (#{id1}, #{id2}) and to_id in (#{id1}, #{id2}) and status = 0;
+    </update>
+
+</mapper>
