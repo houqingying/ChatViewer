@@ -1,0 +1,12 @@
+# .idea IDEA相关设置不上传
+.idea/
+ChatViewer.iml
+
+.mvn/
+mvnw
+mvnw.cmd
+
+# 生成的target不上传
+target/
+
+

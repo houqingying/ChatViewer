@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chatviewer.blog.mapper.CategoryMapper">
+    
+    <update id="updateBeforeInsert">
+        update blog_category set left_index = left_index + 2 where left_index >= #{right};
+        update blog_category set right_index = right_index + 2 where right_index >= #{right};
+    </update>
+
+    <update id="updateAfterDelete">
+        update blog_category set left_index = left_index - #{width} where left_index > #{right};
+        update blog_category set right_index = right_index - #{width} where right_index > #{right};
+    </update>
+
+    <select id="queryChildrenId" resultType="Long">
+        select blog_category.category_id
+        from blog_category
+        <!-- <是非法的，用&lt代替 -->
+        where blog_category.left_index >= #{left} and blog_category.right_index &lt;= #{right};
+    </select>
+
+</mapper>
