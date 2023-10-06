@@ -9,4 +9,5 @@ mvnw.cmd
 # 生成的target不上传
 target/
 
+src/main/resources/secret.yml
 
