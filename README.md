@@ -24,7 +24,7 @@
 
 **代码规范**：后端代码全部通过阿里编码规约扫描。
 
-![image](https://github.com/houqingying/ChatViewer/assets/59137245/badc9261-dea7-4d6a-b861-c2752dca7dc3)
+![image](https://github.com/houqingying/ChatViewer/assets/59137245/19f7c50e-17a7-4f96-8ebf-14080d5f43a6)
 
 
 **TODO**：
