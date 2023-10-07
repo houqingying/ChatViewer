@@ -9,7 +9,7 @@ public class RedisConstant {
     public static final Long USER_CODE_TTL = 15L;
 
     public static final String USER_TOKEN_KEY = "user:login:token:";
-    public static final Long USER_TOKEN_TTL = 120L;
+    public static final Long USER_TOKEN_TTL = 1440L;
 
     public static final String USER_INFO_KEY = "user:info:";
     public static final Long USER_INFO_TTL = 120L;

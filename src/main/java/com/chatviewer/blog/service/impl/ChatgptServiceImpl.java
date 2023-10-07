@@ -56,7 +56,7 @@ public class ChatgptServiceImpl extends ServiceImpl<ChatgptMessageMapper, Chatgp
     /**
      * 发送消息时加入的上下文信息数
      */
-    private static final int CONTEXT_MESSAGE_NUM = 6;
+    private static final int CONTEXT_MESSAGE_NUM = 2;
 
     @Override
     public List<ChatgptMessage> messagesOfConversation(Long conversationId, Integer showItem) {
