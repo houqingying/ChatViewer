@@ -30,6 +30,11 @@ spring:
         time-between-eviction-runs: 10s
     # ！如果你的Redis设置了密码，需要此字段，否则删去即可
     password: yourRedisPassword
+  rabbitmq:
+    addresses: 127.0.0.1:5672
+    username: yourRabbitmqUsername
+    password: yourPassword
+    virtual-host: /
   kafka:
     bootstrap-servers: 127.0.0.1:9092 # kafka集群信息，多个用逗号间隔
     # 生产者

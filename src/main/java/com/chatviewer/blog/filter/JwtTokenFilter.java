@@ -15,9 +15,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
 import static com.chatviewer.blog.constant.RedisConstant.USER_TOKEN_KEY;
+import static com.chatviewer.blog.constant.RedisConstant.USER_TOKEN_TTL;
 
 /**
  * JWT过滤器：
@@ -61,6 +63,9 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                 new UsernamePasswordAuthenticationToken(userId, null, null);
         SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+
+        // 更新Redis中的token有效期
+        stringRedisTemplate.expire(USER_TOKEN_KEY + userId, USER_TOKEN_TTL, TimeUnit.MINUTES);
 
         // 放行
         filterChain.doFilter(request, response);

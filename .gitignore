@@ -10,4 +10,5 @@ mvnw.cmd
 target/
 
 src/main/resources/secret.yml
+src/main/resources/upload.yml
 
