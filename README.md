@@ -11,7 +11,8 @@
 - ❤Redis：点赞业务缓存、高频访问数据缓存
 - 📃Kafka： 解耦点赞、评论操作 与 通知生成
 - ✉️短信服务、文件存储 
-- 🧚‍♂️[PlexPt ChatGPT SDK](https://github.com/PlexPt/chatgpt-java)：流式问答
+- 🧚‍♂️[PlexPt ChatGPT SDK](https://github.com/PlexPt/chatgpt-java)：流式问答，支持使用官方API-Key和限额token两种方式。
+- 🛒Redisson分布式锁、Lua脚本、RabbitMQ消息队列实现限量免费token秒杀
 - ⛷️CompletableFuture
 
 **前端技术栈**：Vite(Vue3) + Element-UI Plus + Pinia + Vditor (因为没有找到比较符合的前端项目所以只好自己写了一下，但代码规范性和合理性可能会差一些)
@@ -23,7 +24,6 @@
 **代码规范**：后端代码全部通过阿里编码规约扫描。
 
 ![image](https://github.com/houqingying/ChatViewer/assets/59137245/77f83c9a-a958-4395-abe3-e95f5734a4b7)
-
 
 
 **TODO**：
